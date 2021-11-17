@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>注册账号</title>
+</head>
+<body>
+    아이디：&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="user_name"><br>
+    비밀번호：&nbsp&nbsp&nbsp&nbsp&nbsp<input type="password" id="user_pwd"><br>
+    비밀번호 확인：<input type="password"><br>
+    메일：&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="email"><br>
+    휴대폰번호：&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="tel"><br>
+    <input type="button" value="가입하기" id="but">
+</body>
+<script>
+    $("#but").click(function(){
+		var user_name  = $("#user_name").val();
+		var user_pwd   = $("#user_pwd").val();
+        var email      = $("#email").val();
+        var tel        = $("#tel").val();
+		$.ajax({
+			url:'http://127.0.0.1:3000/backend/user/add',
+			type:'post',
+			data: {
+				"0":user_name,
+				"1":user_pwd,
+                "2":email,
+                "3":tel
+			},
+			dataType:'json',
+			success:function (data) {
+				if(data === 1){
+                    alert("가입 성공"); parent.location.href='http://127.0.0.1:3000';
+                }else{
+                    alert("이미 존재하는 아이디입니다.");parent.location.href='http://127.0.0.1:3000/backend/addUser';
+                }
+			}
+		});
+	});
+
+</script>
+</html>

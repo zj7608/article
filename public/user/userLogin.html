@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+
+    </script>
+    <title>用户登录</title>
+    <style>
+        .div{
+            margin:0 auto; 
+        }
+    </style>
+</head>
+<body>
+    <div class="div">
+        아이디 ：&nbsp<input type="text" " id="user_name"><br>
+        비&nbsp&nbsp&nbsp번  ：&nbsp<input type="password" id="user_pwd"><br>
+        <input type="button" id="login" value="로그인">&nbsp&nbsp&nbsp&nbsp&nbsp
+        <input type="button" id="addUser" value="회원가입">
+    </div>
+</body>
+<script>
+    $("#login").click(function(){
+		var user_name  = $("#user_name").val();
+		var user_pwd   = $("#user_pwd").val();
+		$.ajax({
+			url:'http://127.0.0.1:3000/backend/user',
+			type:'get',
+			data: {
+				"0":user_name,
+				"1":user_pwd,
+			},
+			dataType:'json',
+			success:function (data) {
+				if(data === 1){
+                    alert('로그인성공');parent.location.href='http://127.0.0.1:3000';
+                }else{
+                    alert('아이디 혹은 비밀번호 오류');parent.location.href='http://127.0.0.1:3000/backend/loging';
+                }
+			}
+		});
+	});
+    $("#addUser").click(function(){
+		parent.location.href='http://127.0.0.1:3000/backend/addUser';
+	});
+</script>
+</html>
