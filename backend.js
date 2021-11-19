@@ -1,10 +1,11 @@
 const express = require("express");
 const back    = express.Router();
 const cookieParser = require('cookie-parser');
-var sqlMould  = require("./sql.class");
-var sql       = new sqlMould(); 
+var userModel = require('./class/user.class');
+var user      = new userModel();
 back.use(cookieParser());
 back.use(express.urlencoded({ extended: true }))
+
 
 //跳转到userLogin页面
 back.get("/backend/loging",(req,res) => {
@@ -16,21 +17,14 @@ back.get("/backend/loging",(req,res) => {
 back.get("/backend/user",async(req,res) => {
     let user_name = req.query[0];
     let user_pwd  = req.query[1];
-    let table     = "artuser";
-    let key       = "*";
-    let cond      =" user_name = '"+user_name+"' AND user_pwd = '"+user_pwd+"'";
-    async function findUser(){
-        var date = await sql.Find(table,key,cond);
-        return date;
+    async function userLogin(){
+        return await user.userLogin(user_name,user_pwd);
     }
-
-    var data = await findUser();
-    if (data.length === 0) {
-        res.send("0");
-    }else{
+    let state = await userLogin();
+    if (state == '1') {
         res.cookie("user_name",user_name);
-        res.send("1");
     }
+    res.send(state);
 })
 
 
@@ -42,31 +36,16 @@ back.get("/backend/addUser",(req,res) => {
 
 //验证用户名是否存在,不存在就把用户数据入库
 back.post("/backend/user/add",async (req,res) => {
-
+    let data = req.body;
     let user_name = req.body[0];
-    let user_pwd  = req.body[1];
-    let user_mail = req.body[2];
-    let user_tel  = req.body[3];
-    async function findUser(){
-        let table = "artuser";
-        let key   = "*";
-        let cond  = " user_name = '"+user_name+"'";
-        await sql.Begin();
-        let data =  await sql.Find(table,key,cond);
-        if (data.length != 0) {
-            await sql.Commit();
-            res.send("0");
-        }else{
-            let table = "artuser";
-            let field = "user_name,user_pwd,user_mail,user_tel";
-            let cond  = "'"+user_name+"','"+user_pwd+"','"+user_mail+"','"+user_tel+"'";
-            await sql.Insert(table,field,cond);
-            await sql.Commit();
-            res.send("1");
-        }
+    async function userAdd(){
+        return await user.userAdd(data);
     }
-    findUser();
-
+    let state = await userAdd();
+    if (state == '1') {
+        res.cookie("user_name",user_name);
+    }
+    res.send(state);
 })
 
 

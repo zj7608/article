@@ -27,7 +27,7 @@
         var article_title = $("#article_title").val();
         var article_content = $("#article_content").val();
         $.ajax({
-			url:'http://127.0.0.1:3000/frontend/article/add',
+			url:'http://127.0.0.1:3000/frontend/addArticle',
 			type:'post',
 			data: {
 				"article_title":article_title,

@@ -10,7 +10,7 @@
         $(document).ready(function(){
         var article_id = url.match(/\?article_id=(.*)/)[1];
 		$.ajax({
-			url:'http://127.0.0.1:3000/frontend/article/sel',
+			url:'http://127.0.0.1:3000/frontend/articleContent',
 			type:'get',
 			data: {
 				"0":article_id
@@ -27,7 +27,7 @@
     $(document).ready(function(){
         var article_id = url.match(/\?article_id=(.*)/)[1];
 		$.ajax({
-			url:'http://127.0.0.1:3000/frontend/comment/sel',
+			url:'http://127.0.0.1:3000/frontend/showComment',
 			type:'get',
 			data: {
 				"article_id":article_id
@@ -122,7 +122,7 @@
         var comment = $("#addComm").val();
         var article_id = url.match(/\?article_id=(.*)/)[1];
         $.ajax({
-			url:'http://127.0.0.1:3000/frontend/addComm',
+			url:'http://127.0.0.1:3000/frontend/addComment',
 			type:'post',
             data: {
 				"comment":comment,

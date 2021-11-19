@@ -8,7 +8,7 @@
     <script>
         $(document).ready(function(){
             $.ajax({
-			url:'http://127.0.0.1:3000/frontend/article',
+			url:'http://127.0.0.1:3000/frontend/articleTitle',
 			type:'get',
                 success:function (data) {
                     var article = JSON.parse(data);
@@ -30,7 +30,7 @@
                      if(data === "1"){
                         $("#login").hide();
 
-                     }
+                    }
                 }    
 		    })
         })
@@ -51,7 +51,7 @@
                 if(data === "0"){
                     alert('로그인하십시오');parent.location.href='http://127.0.0.1:3000/backend/loging';
                 }else{
-                    parent.location.href='http://127.0.0.1:3000/frontend/article/publish';
+                    parent.location.href='http://127.0.0.1:3000/frontend/publishArticle';
                 }   
             }    
 		})

@@ -1,4 +1,4 @@
-const db = require("./dbconfig");
+const db = require("../dbconfig");
 
 /**
  * sql语句封装类
