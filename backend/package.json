@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend.js",
+  "dependencies": {
+    "body": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1",
+    "ngx-cookie-service": "^13.1.2",
+    "primeicons": "^5.0.0",
+    "primeng": "^11.4.5",
+    "silly-datetime": "^0.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
