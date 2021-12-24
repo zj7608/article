@@ -1,0 +1,23 @@
+<div>
+  <div class="u_login">
+    <form [formGroup]="login">
+      <span
+        >아이디:
+        <input type="text" pInputText formControlName="user_name" /></span
+      ><br />
+      <span
+        >비밀번호:
+        <input type="password" pInputText formControlName="user_pwd" /></span
+      ><br />
+      <button
+        pButton
+        type="button"
+        [routerLink]="['/adduser']"
+        class="u_addButton"
+      >
+        회원가입
+      </button>
+      <button pButton type="button" (click)="click()">로그인</button>
+    </form>
+  </div>
+</div>

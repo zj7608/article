@@ -1,0 +1,42 @@
+.a_content_style {
+  height: 300px;
+  width: 1188px;
+  margin: 0 auto;
+}
+.a_title {
+  height: 50px;
+  width: 1188px;
+  font-size: 30px;
+  text-align: center;
+}
+.a_centent {
+  width: 980px;
+  text-align: center;
+  font-size: 20px;
+}
+.a_comment {
+  height: 230px;
+  width: 630px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.a_comment_content {
+  height: 20px;
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.a_addComment {
+  float: right;
+}
+.comm_user {
+  float: right;
+}
+.a_comm_button {
+  margin-top: 20px;
+  float: right;
+}
+
+.a_comm_text {
+  margin: 0 auto;
+}

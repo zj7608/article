@@ -1,0 +1,12 @@
+.a_addArticle_style {
+  height: 300px;
+  width: 600px;
+  color: blue;
+  margin: 0 auto;
+}
+.a_addButton {
+  float: right;
+}
+.a_addText {
+  width: 550px;
+}

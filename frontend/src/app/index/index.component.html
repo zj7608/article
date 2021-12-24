@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script></script>
+  </head>
+  <body>
+    <div>
+      <div class="a_button">
+        <button
+          pButton
+          type="button"
+          [routerLink]="['/addarticle']"
+          class="a_addArticle"
+        >
+          글쓰기
+        </button>
+        <button
+          pButton
+          type="button"
+          [routerLink]="['/ulogin']"
+          class="a_login"
+        >
+          로그인/회원가입
+        </button>
+        <button pButton type="button" (click)="logout()">logout</button>
+      </div>
+      <br />
+      <div class="a_title_div">
+        <div *ngFor="let item of article_title" class="a_content">
+          <span class="a_title">
+            <a
+              [routerLink]="['/artcomment']"
+              [queryParams]="{ id: item.article_id }"
+              >{{ item.article_title }}</a
+            ></span
+          >
+          <span class="a_user_name">{{ item.user_name }}</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+.u_login {
+  height: 300px;
+  width: 200px;
+  color: blue;
+  margin: 0 auto;
+}
+.u_addButton {
+  float: right;
+}

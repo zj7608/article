@@ -1,0 +1,25 @@
+<div class="u_addUser">
+  <form [formGroup]="login">
+    <div class="u_input">
+      <span
+        >아이디:
+        <input pInputText type="text" formControlName="user_name" /></span
+      ><br />
+      <span
+        >비밀번호:
+        <input pInputText type="password" formControlName="user_pwd" /></span
+      ><br />
+      <span
+        >휴대폰번호:
+        <input pInputText type="text" formControlName="user_tel" /></span
+      ><br />
+      <span
+        >메일:
+        <input pInputText type="text" formControlName="user_mail" /></span
+      ><br />
+      <button pButton type="button" (click)="click()" class="u_button">
+        가입하기
+      </button>
+    </div>
+  </form>
+</div>

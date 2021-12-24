@@ -1,0 +1,23 @@
+<div>
+  <div class="a_addArticle_style">
+    <form [formGroup]="login">
+      제목：<input
+        pInputText
+        class="a_addText"
+        type="text"
+        formControlName="article_title"
+      /><br /><br />
+      내용：<textarea
+        formControlName="article_content"
+        [rows]="10"
+        [cols]="70"
+        pInputTextarea
+        autoResize="autoResize"
+      ></textarea
+      ><br />
+      <button pButton type="button" (click)="click()" class="a_addButton">
+        게시
+      </button>
+    </form>
+  </div>
+</div>

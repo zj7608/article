@@ -1,0 +1,33 @@
+<div class="a_content_style">
+  <h2 class="a_title">{{ article_title }}</h2>
+  <div class="a_centent">{{ article_content }}</div>
+  <div class="a_comment">
+    <form [formGroup]="login">
+      <div class="a_comm_text">
+        <textarea
+          [rows]="8"
+          [cols]="80"
+          pInputTextarea
+          autoResize="autoResize"
+          formControlName="comment"
+        ></textarea>
+        <br />
+      </div>
+      <div class="a_comm_button">
+        <button
+          class="a_addComment"
+          pButton
+          type="button"
+          class="p-button-raised p-button-rounded"
+          (click)="click()"
+        >
+          评论
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngFor="let item of artComment" class="a_comment_content">
+    <span> {{ item.comment_content }} </span>
+    <span class="comm_user"> {{ item.user_name }} </span>
+  </div>
+</div>
