@@ -9,6 +9,7 @@
   - 테이블은 코드에 의해 자동으로 생성됩니다.
 
 3.프로젝트
+  - run : npm install
   - API Server ： cd backend;  run:  node article.js
   - Web Server ： cd frontend;  run:  ng s -o
 
