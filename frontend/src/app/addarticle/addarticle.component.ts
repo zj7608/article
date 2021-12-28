@@ -28,8 +28,8 @@ export class AddarticleComponent implements OnInit {
     } else {
       let date = {};
       let article = this.login.value;
-      Object.assign(date, article, user_name);
 
+      Object.assign(date, article, user_name);
       let artContentApi = 'http://127.0.0.1:3000/frontend/addArticle';
 
       this.http.post(artContentApi, date, httpOptions).subscribe((res) => {

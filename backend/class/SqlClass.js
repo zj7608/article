@@ -36,92 +36,116 @@ class sqlMould {
 
   //插入语句
   async Insert(Table, Field, val) {
-    let date = db.query(
-      "INSERT INTO " + Table + " ( " + Field + " ) VALUES ( " + val + " )"
-    );
-    return date;
+    try {
+      let date = db.query(
+        "INSERT INTO " + Table + " ( " + Field + " ) VALUES ( " + val + " )"
+      );
+      return date;
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   //删除语句
   async Delete(Table, field, val) {
-    let date = db.query(
-      "DELETE FROM " + Table + " WHERE " + field + " = '" + val + "'"
-    );
-    return date;
+    try {
+      let date = db.query(
+        "DELETE FROM " + Table + " WHERE " + field + " = '" + val + "'"
+      );
+      return date;
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   //修改语句
   async Put(Table, Field1, val1, Field2, val2) {
-    let date = db.query(
-      "UPDATE " +
-        Table +
-        " SET " +
-        Field1 +
-        " = '" +
-        val1 +
-        "' WHERE " +
-        Field2 +
-        " = '" +
-        val2 +
-        "'"
-    );
-    return date;
+    try {
+      let date = db.query(
+        "UPDATE " +
+          Table +
+          " SET " +
+          Field1 +
+          " = '" +
+          val1 +
+          "' WHERE " +
+          Field2 +
+          " = '" +
+          val2 +
+          "'"
+      );
+      return date;
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   //单条查询语句
   async Find(Table, key, Condition) {
-    if (Condition) {
-      let date = db.query(
-        "SELECT " + key + " FROM " + Table + " WHERE " + Condition
-      );
-      return date;
-    } else {
-      let find = db.query("SELECT * FROM " + Table);
-      return find;
+    try {
+      if (Condition) {
+        let date = db.query(
+          "SELECT " + key + " FROM " + Table + " WHERE " + Condition
+        );
+        return date;
+      } else {
+        let find = db.query("SELECT * FROM " + Table);
+        return find;
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 
   //两表联查语句
   async Select(Table1, Table2, Key, val1) {
     if (val1) {
-      let date = db.query(
-        "SELECT * FROM " +
-          Table1 +
-          "  INNER JOIN " +
-          Table2 +
-          " ON " +
-          Table1 +
-          "." +
-          Key +
-          " = " +
-          Table2 +
-          "." +
-          Key +
-          " WHERE " +
-          Table2 +
-          "." +
-          Key +
-          "= '" +
-          val1 +
-          "'"
-      );
-      return date;
+      try {
+        let date = db.query(
+          "SELECT * FROM " +
+            Table1 +
+            "  INNER JOIN " +
+            Table2 +
+            " ON " +
+            Table1 +
+            "." +
+            Key +
+            " = " +
+            Table2 +
+            "." +
+            Key +
+            " WHERE " +
+            Table2 +
+            "." +
+            Key +
+            "= '" +
+            val1 +
+            "'"
+        );
+        return date;
+      } catch (e) {
+        console.log(e);
+      }
     } else {
-      let date = db.query(
-        "SELECT * FROM " +
-          Table1 +
-          "  INNER JOIN " +
-          Table2 +
-          " ON " +
-          Table1 +
-          "." +
-          Key +
-          " = " +
-          Table2 +
-          "." +
-          Key
-      );
-      return date;
+      try {
+        let date = db.query(
+          "SELECT * FROM " +
+            Table1 +
+            "  INNER JOIN " +
+            Table2 +
+            " ON " +
+            Table1 +
+            "." +
+            Key +
+            " = " +
+            Table2 +
+            "." +
+            Key
+        );
+        return date;
+      } catch (e) {
+        console.log(e);
+      }
     }
   }
 }

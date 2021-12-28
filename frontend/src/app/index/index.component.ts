@@ -20,7 +20,6 @@ export class IndexComponent implements OnInit {
   logout() {
     const storage = window.localStorage;
     let user_name = { user_name: storage['user_name'] };
-    console.log(user_name);
 
     if (user_name['user_name'] != undefined) {
       localStorage.removeItem('user_name');

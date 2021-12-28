@@ -2,12 +2,22 @@ const express = require("express");
 const app = express();
 const backend = require("./backend");
 const frontend = require("./frontend");
-const cookieParser = require("cookie-parser");
+const sqlClass = require("./class/SqlClass");
 
 app.use(backend);
 app.use(frontend);
-app.use(cookieParser());
 app.use(express.json());
-app.use(express.static("./public/article"));
 
-app.listen(3000, () => console.log(`服务器启动成功`));
+async function chaktable() {
+  try {
+    let sql = new sqlClass();
+    await sql.ChackTable();
+  } catch (e) {
+    console.log(e);
+  }
+}
+chaktable();
+
+app.listen(3000, () => {
+  console.log("服务器启动成功");
+});

@@ -66,8 +66,10 @@ export class ArtcommentComponent implements OnInit {
 
         if (num == '1') {
           alert('댓글 성공');
-          parent.location.href =
-            'http://127.0.0.1:4200/artcomment?id=' + this.article_id;
+          let artCommentApi = 'http://127.0.0.1:3000/frontend/showComment';
+          this.http.post(artCommentApi, date, httpOptions).subscribe((res) => {
+            this.artComment = res;
+          });
         } else {
           alert('댓글 실패');
           parent.location.href =

@@ -10,5 +10,5 @@
 
 3.프로젝트
   - API Server ： cd backend;  run:  node article.js
-  - WebServer： cd frontend;  run:  ng s -o
+  - Web Server ： cd frontend;  run:  ng s -o
 

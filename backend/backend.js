@@ -20,26 +20,34 @@ back.all("*", function (req, res, next) {
 
 //用户登录,判断账号密码是否正确
 back.post("/backend/user", async (req, res) => {
-  let user_name = req.body["user_name"];
-  let user_pwd = req.body["user_pwd"];
-  async function userLogin() {
-    return await user.userLogin(user_name, user_pwd);
+  try {
+    let user_name = req.body["user_name"];
+    let user_pwd = req.body["user_pwd"];
+    async function userLogin() {
+      return await user.userLogin(user_name, user_pwd);
+    }
+    let state = await userLogin();
+    let date = { num: state };
+    res.send(date);
+  } catch (e) {
+    console.log(e);
   }
-  let state = await userLogin();
-  let date = { num: state };
-  res.send(date);
 });
 
 //验证用户名是否存在,不存在就把用户数据入库
 back.post("/backend/user/add", async (req, res) => {
-  let data = req.body;
-  async function userAdd() {
-    return await user.userAdd(data);
-  }
-  let state = await userAdd();
+  try {
+    let data = req.body;
+    async function userAdd() {
+      return await user.userAdd(data);
+    }
+    let state = await userAdd();
 
-  let date = { num: state };
-  res.send(date);
+    let date = { num: state };
+    res.send(date);
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 module.exports = back;
